@@ -34,7 +34,7 @@ int main(){
   }while(next_permutation(route.begin(), route.end()));
 
   std::cout << "0";
-  for(auto i : route) {
+  for(auto i : min_route) {
     std::cout << " " << i;
   }
   std::cout << std::endl;
