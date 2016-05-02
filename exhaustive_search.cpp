@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <ctime>
 
 int main(){
   int n;
@@ -16,6 +17,8 @@ int main(){
       std::cin >> dist[i][j];
     }
   }
+  
+  clock_t begin = clock();
 
   double min = 10000000;
   std::vector<int> min_route = route;
@@ -32,6 +35,11 @@ int main(){
       min_route = route;
     }
   }while(next_permutation(route.begin(), route.end()));
+
+  clock_t end = clock();
+  double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+  
+  std::cout << elapsed_secs << "sec" << std::endl;
 
   std::cout << "0";
   for(auto i : min_route) {
